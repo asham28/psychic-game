@@ -29,23 +29,22 @@
         <span id="guesses" onKeyUp="keyPressed()"></span>
     </p>
 
-    <div class="jumbotron text-center h1 collapse" id="youLose">YOU LOSE</div>
 </body>
 
 
 
 
 <script>
-    //grabbing references to the document tags
-    var wins = 0;
+    
+    var wins = 0; 
     var losses = 0;
-    var guessesLeft = 9;
-    var guesses = 10;
-
+    var guessesLeft = 10; 
+    var guesses = document.getElementById("guesses");
+ 
     var guessesSoFar = []; //an array that will hold all the user's guesses
     var userGuess = null; 
 
-    var guesses = document.getElementById("guesses");
+   
 
 
     //Random letter generator guesses 
@@ -67,7 +66,7 @@
         // add the user's guess to the array guessesSoFar if it hasn't already been picked. Also checks to see if it is within the alphabet 
 
         if (guessesSoFar.indexOf(userGuess) < 0 && alphabet.indexOf(userGuess) >= 0) {
-            guessesSoFar[guessesSoFar.length] = userGuess;
+           guessesSoFar[guessesSoFar.length] = userGuess;
             // if it is a new letter then decrease remaining guesses by 1
             guessesLeft--;
         }
@@ -79,7 +78,8 @@
             guessesLeft = 9;
             guessesSoFar = [];
 
-            computerPick = alphabet[Math.floor(Math.random() * alphabet.length)];;
+            computerPick = alphabet[Math.floor(Math.random() * alphabet.length)];
+            
             console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft +
                 " Guesses so far: " + guessesSoFar + " Computer picked: " + computerPick);
 
@@ -113,25 +113,6 @@
     }
 
 
-    /*Condition if guess is wrong and player has lives left
-       else if (userGuess !== computerPick && guessesLeft > 0) {
-           guessesLeft--;
-           document.getElementById("guesses").innerHTML = userGuess += userGuess;
-
-           computerPick = alphabet[Math.floor(Math.random() * alphabet.length)];;
-           console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft +
-               " Guesses so far: " + guessesSoFar + " Computer picked: " + computerPick);
-
-
-       } */
-
-    /*
-        {
-     get = window.event ? event:e;
-     key = get.keyCode?get.keyCode:get.charCode; //get character code 
-     key = String.fromCharCode(key); // convert it to string 
-     keys+=key; // append current character to previous one (concatinate)
-    } */
 </script>
 
 
